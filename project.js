@@ -3,6 +3,7 @@ const titleElement = document.querySelector("#title");
 const directorElement = document.querySelector("#director");
 const urlElement = document.querySelector("#url");
 
+
 // UI Objesini Başlatma
 const ui = new UI();
 
@@ -22,11 +23,12 @@ function addFilm(e) {
 
      if (title === "" || director === "" || url === "") {
           //hata
+          ui.displayMessages("Tüm alanları doldurun...", "danger")
      } else {
           //yeni film
           const newFlim = new Film(title, director, url);
 
-
+          ui.displayMessages("Başarılı", "success")
           ui.addFilmToUI(newFlim) // arayüze film ekleme
      }
 
@@ -35,3 +37,5 @@ function addFilm(e) {
 
      e.preventDefault();
 }
+
+
